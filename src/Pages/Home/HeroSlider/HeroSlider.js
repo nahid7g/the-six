@@ -4,14 +4,22 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper'
+import { Navigation, Keyboard, Autoplay } from 'swiper'
 
 const HeroSlider = () => {
   return (
     <section>
       <Swiper
         navigation={true}
-        modules={[Navigation]}
+        modules={[Navigation, Keyboard, Autoplay]}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        keyboard={{
+          enabled: true,
+        }}
         className='mySwiper'
         style={{ height: '500px' }}
       >
