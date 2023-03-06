@@ -1,10 +1,21 @@
 import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper'
 
 const HeroSlider = () => {
   return (
     <section>
-      <div className='carousel w-full' style={{ height: '500px' }}>
-        <div id='slide1' className='carousel-item relative w-full'>
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        className='mySwiper'
+        style={{ height: '500px' }}
+      >
+        <SwiperSlide className='relative w-full'>
           <img
             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREf_Q80-Bk4gkbQoOMMZ6IF8CkxHXYxnrn9Q&usqp=CAU'
             className='w-full'
@@ -21,16 +32,8 @@ const HeroSlider = () => {
             </p>
             <button className='btn btn-warning'>Buy tickets now</button>
           </div>
-          <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-            <a href='#slide2' className='btn btn-circle'>
-              ❮
-            </a>
-            <a href='#slide2' className='btn btn-circle'>
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id='slide2' className='carousel-item relative w-full'>
+        </SwiperSlide>
+        <SwiperSlide className='relative w-full'>
           <img
             src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
             className='w-full'
@@ -47,60 +50,8 @@ const HeroSlider = () => {
             </p>
             <button className='btn btn-warning'>Buy tickets now</button>
           </div>
-          <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-            <a href='#slide1' className='btn btn-circle'>
-              ❮
-            </a>
-            <a href='#slide1' className='btn btn-circle'>
-              ❯
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className='carousel carousel-end rounded-box'>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-        <div className='carousel-item'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-            alt='Drink'
-          />
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </section>
   )
 }
