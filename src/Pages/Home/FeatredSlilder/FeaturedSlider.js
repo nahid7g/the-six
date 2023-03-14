@@ -32,10 +32,13 @@ const FeaturedSlider = () => {
               className='w-full'
             />
             <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a href='/' className='slider-title text-3xl font-bold'>
+              <a
+                href='/'
+                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+              >
                 Leo Messi the magic man
               </a>
-              <p className='text-xl'>25 December 2023</p>
+              <p className='text-sm lg:text-xl'>25 December 2023</p>
             </div>
           </a>
         </SwiperSlide>
@@ -46,10 +49,13 @@ const FeaturedSlider = () => {
               className='w-full'
             />
             <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a href='/' className='slider-title text-3xl font-bold'>
+              <a
+                href='/'
+                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+              >
                 Leo Messi the magic man
               </a>
-              <p className='text-xl'>25 December 2023</p>
+              <p className='text-sm lg:text-xl'>25 December 2023</p>
             </div>
           </a>
         </SwiperSlide>
@@ -60,10 +66,13 @@ const FeaturedSlider = () => {
               className='w-full'
             />
             <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a href='/' className='slider-title text-3xl font-bold'>
+              <a
+                href='/'
+                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+              >
                 Leo Messi the magic man
               </a>
-              <p className='text-xl'>25 December 2023</p>
+              <p className='text-sm lg:text-xl'>25 December 2023</p>
             </div>
           </a>
         </SwiperSlide>

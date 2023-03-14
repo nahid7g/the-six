@@ -17,8 +17,8 @@ const ScheduleSlider = () => {
         }}
         loop={true}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
+          300: {
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
