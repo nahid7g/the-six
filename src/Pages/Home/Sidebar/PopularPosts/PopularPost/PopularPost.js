@@ -19,7 +19,7 @@ const PopularPost = () => {
           </a>
           <p className='my-1'>Lorem ipsum dolor sit.</p>
         </div>
-        <p className='font-bold'>November 30 2023</p>
+        <p>November 30 2023</p>
       </div>
     </section>
   )
