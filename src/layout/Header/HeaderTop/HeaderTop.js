@@ -45,22 +45,22 @@ const HeaderTop = () => {
         </div>
         <div className='hidden sm:block'>
           <ul className='flex gap-4 uppercase'>
-            <li>
-              <a href='/'>
+            <label htmlFor='login-modal' className='btn'>
+              <li>
                 <span className='inline-grid mr-2'>
                   <FaUserAlt />
                 </span>
                 login
-              </a>
-            </li>
-            <li>
-              <a href='/'>
+              </li>
+            </label>
+            <label htmlFor='register-modal' className='btn'>
+              <li>
                 <span className='inline-grid mr-2'>
                   <FaUserAlt />
                 </span>
                 Register
-              </a>
-            </li>
+              </li>
+            </label>
           </ul>
         </div>
         <div className='text-xl'>
@@ -72,22 +72,22 @@ const HeaderTop = () => {
       {/* Login/Register on small screen  */}
       <div className='sm:hidden flex justify-center sm:order-last my-4'>
         <ul className='flex gap-4 uppercase'>
-          <li>
-            <a href='/'>
+          <label htmlFor='login-modal' className='btn'>
+            <li>
               <span className='inline-grid mr-2'>
                 <FaUserAlt />
               </span>
               login
-            </a>
-          </li>
-          <li>
-            <a href='/'>
+            </li>
+          </label>
+          <label htmlFor='register-modal' className='btn'>
+            <li>
               <span className='inline-grid mr-2'>
                 <FaUserAlt />
               </span>
               Register
-            </a>
-          </li>
+            </li>
+          </label>
         </ul>
       </div>
     </div>

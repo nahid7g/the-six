@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaComment, FaEye } from 'react-icons/fa'
 
 const NewsCard = ({ classess }) => {
   return (
@@ -27,7 +28,7 @@ const NewsCard = ({ classess }) => {
           <a href='/'>read more</a>
         </div>
         <div className='divider'></div>
-        <div className='flex gap-3 items-center text-xs'>
+        <div className='flex gap-3 items-center text-sm'>
           <div className='flex gap-2 items-center'>
             <div className='avatar'>
               <div className='w-14 rounded-full'>
@@ -36,12 +37,16 @@ const NewsCard = ({ classess }) => {
             </div>
             <h4>Admin</h4>
           </div>
-          <div className='flex gap-1'>
-            <p>a</p>
+          <div className='flex items-center gap-1'>
+            <p>
+              <FaEye />
+            </p>
             <p>1084</p>
           </div>
-          <div className='flex gap-1'>
-            <p>c</p>
+          <div className='flex items-center gap-1'>
+            <p>
+              <FaComment />
+            </p>
             <p>0</p>
           </div>
         </div>
