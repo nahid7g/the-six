@@ -26,55 +26,49 @@ const FeaturedSlider = () => {
         className='mySwiper'
       >
         <SwiperSlide className='relative'>
-          <a href='/'>
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-              className='w-full'
-            />
-            <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a
-                href='/'
-                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
-              >
-                Leo Messi the magic man
-              </a>
-              <p className='text-sm lg:text-xl'>25 December 2023</p>
-            </div>
-          </a>
+          <img
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
+            className='w-full'
+          />
+          <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
+            <a
+              href='/'
+              className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+            >
+              Leo Messi the magic man
+            </a>
+            <p className='text-sm lg:text-xl'>25 December 2023</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide className='relative'>
-          <a href='/'>
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-              className='w-full'
-            />
-            <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a
-                href='/'
-                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
-              >
-                Leo Messi the magic man
-              </a>
-              <p className='text-sm lg:text-xl'>25 December 2023</p>
-            </div>
-          </a>
+          <img
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
+            className='w-full'
+          />
+          <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
+            <a
+              href='/'
+              className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+            >
+              Leo Messi the magic man
+            </a>
+            <p className='text-sm lg:text-xl'>25 December 2023</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide className='relative'>
-          <a href='/'>
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
-              className='w-full'
-            />
-            <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a
-                href='/'
-                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
-              >
-                Leo Messi the magic man
-              </a>
-              <p className='text-sm lg:text-xl'>25 December 2023</p>
-            </div>
-          </a>
+          <img
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSv3jIg0ZqwRgFbRA1JUpdLNBiMpdY0yH5qw&usqp=CAU'
+            className='w-full'
+          />
+          <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
+            <a
+              href='/'
+              className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+            >
+              Leo Messi the magic man
+            </a>
+            <p className='text-sm lg:text-xl'>25 December 2023</p>
+          </div>
         </SwiperSlide>
       </Swiper>
     </>

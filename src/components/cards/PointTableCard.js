@@ -1,8 +1,9 @@
 import React from 'react'
 
-const PointTableCard = () => {
+const PointTableCard = ({ title, pointTable }) => {
   return (
-    <div>
+    <>
+      <h2 className='text-2xl my-3 ml-2'>{title}</h2>
       <div className='overflow-x-auto'>
         <table className='table table-zebra w-full text-sm'>
           {/* head */}
@@ -15,153 +16,23 @@ const PointTableCard = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>1</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>2</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td className='flex items-center justify-between'>
-                <span>3</span>
-                <img
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/fixer-logo7.png'
-                  alt='flag'
-                  className='w-8'
-                />
-                <span>Portugal</span>
-              </td>
-              <td>4</td>
-              <td>3</td>
-              <td>12</td>
-            </tr>
+            {pointTable?.slice(0, 10).map((table, index) => (
+              <tr className='hover' key={table?.logo}>
+                <td className='flex items-center gap-4'>
+                  <span>{index + 1}</span>
+                  <img src={table?.logo} alt='flag' className='w-8' />
+                  <span>{table?.name}</span>
+                </td>
+                <td>{table?.matches}</td>
+                <td>{table?.win}</td>
+                <td>{table?.points}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-    </div>
+      {/* row 1 */}
+    </>
   )
 }
 

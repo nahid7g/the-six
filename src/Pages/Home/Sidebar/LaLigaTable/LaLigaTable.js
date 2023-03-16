@@ -1,12 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import PointTableCard from '../../../../components/cards/PointTableCard'
 
 const LaLigaTable = () => {
+  const [pointTable, setPointTable] = useState([])
+  useEffect(() => {
+    const laligaTable = async () => {
+      const { data } = await axios.get('laligatable.json')
+      setPointTable(data)
+    }
+    laligaTable()
+  }, [])
   return (
     <div className='border'>
       <div className='border-t-8 border-indigo-700'>
-        <h2 className='text-2xl my-3 ml-2'>La Liga Table</h2>
-        <PointTableCard />
+        <PointTableCard title='La Liga Table' pointTable={pointTable} />
       </div>
     </div>
   )
