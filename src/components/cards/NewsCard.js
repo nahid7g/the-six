@@ -1,13 +1,13 @@
 import React from 'react'
 import { FaComment, FaEye } from 'react-icons/fa'
 
-const NewsCard = ({ classess }) => {
+const NewsCard = ({ classess, orderClass }) => {
   return (
     <div className={`${classess} shadow-xl p-4 border gap-6 text-sm`}>
       <img
         src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/11/blog34-390x335.jpg'
         alt='Thumbnail'
-        className='w-full'
+        className={`${orderClass} w-full`}
       />
       <div className='flex flex-col justify-between'>
         <div className='flex flex-col gap-1'>
