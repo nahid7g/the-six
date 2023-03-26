@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../../components/cards/Loading/Loading'
+import Loading from '../../../components/Loading/Loading'
 import { login } from '../../../redux/actionCreators/userActions'
 
 const Login = () => {

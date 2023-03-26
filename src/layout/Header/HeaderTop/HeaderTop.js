@@ -9,7 +9,6 @@ import {
   FaSistrix,
 } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../../components/cards/Loading/Loading'
 import { loggedInUser, logout } from '../../../redux/actionCreators/userActions'
 import '../Header.css'
 

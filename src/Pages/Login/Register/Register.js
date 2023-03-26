@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { register } from '../../../redux/actionCreators/userActions'
 import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../../components/cards/Loading/Loading'
+import Loading from '../../../components/Loading/Loading'
 
 const Register = () => {
   const [checked, setChecked] = useState(false)
