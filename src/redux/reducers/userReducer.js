@@ -10,7 +10,7 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
-} from '../actionTypes/userActionTypes'
+} from '../actionTypes/actionTypes'
 
 export const registerUserReducer = (state = {}, action) => {
   switch (action.type) {

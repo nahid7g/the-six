@@ -11,7 +11,7 @@ import {
   TWO_ARTICLES_BOTTOM_FAIL,
   TWO_ARTICLES_BOTTOM_REQUEST,
   TWO_ARTICLES_BOTTOM_SUCCESS,
-} from '../actionTypes/userActionTypes'
+} from '../actionTypes/actionTypes'
 
 export const firstTwoArticleReducer = (state = {}, action) => {
   switch (action.type) {

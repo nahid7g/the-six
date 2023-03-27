@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation, Keyboard, Autoplay } from 'swiper'
+import { getHeroslider } from '../../../redux/actionCreators/sliderActions'
+import Loading from '../../../components/Loading/Loading'
 
 const HeroSlider = () => {
+  const dispatch = useDispatch()
+  const { loading, data, message } = useSelector((state) => state.heroSlider)
+  useEffect(() => {
+    dispatch(getHeroslider())
+  }, [dispatch])
+  if (loading) {
+    return <Loading />
+  }
   return (
     <section>
+      {message && (
+        <p className='text-center text-2xl text-red-600'>
+          Sorry something went wrong!
+        </p>
+      )}
       <Swiper
         navigation={true}
         modules={[Navigation, Keyboard, Autoplay]}
@@ -21,34 +38,27 @@ const HeroSlider = () => {
           enabled: true,
         }}
         className='mySwiper'
-        style={{ height: '500px' }}
       >
-        <SwiperSlide className='relative w-full'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREf_Q80-Bk4gkbQoOMMZ6IF8CkxHXYxnrn9Q&usqp=CAU'
-            className='w-full'
-          />
-          <div className='flex flex-col gap-4 text-white absolute justify-center items-center top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'>
-            <h2 className='slider-title text-xl font-bold'>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Quibusdam, suscipit!
-            </h2>
-            <button className='btn btn-primary'>Buy tickets now</button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className='relative w-full'>
-          <img
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREf_Q80-Bk4gkbQoOMMZ6IF8CkxHXYxnrn9Q&usqp=CAU'
-            className='w-full'
-          />
-          <div className='flex flex-col gap-4 text-white absolute justify-center items-center top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'>
-            <h2 className='slider-title text-xl font-bold'>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Quibusdam, suscipit!
-            </h2>
-            <button className='btn btn-primary'>Buy tickets now</button>
-          </div>
-        </SwiperSlide>
+        {data?.data?.map((slider) => (
+          <SwiperSlide key={slider._id} className='relative w-full'>
+            <img
+              src={`${slider?.thumbnail}`}
+              alt={slider?.title}
+              className='w-full h-full opacity-80'
+            />
+            <div className='md:flex hidden flex-col gap-4 text-white absolute justify-center items-center top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'>
+              <h2 className='slider-title text-4xl font-bold'>
+                {slider?.title}
+              </h2>
+              <p>
+                {slider?.length > 15 ? slider?.content + '..' : slider?.content}
+              </p>
+              <Link to={slider?.postUrl} className='btn btn-primary'>
+                More Info
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   )

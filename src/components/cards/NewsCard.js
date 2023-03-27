@@ -33,6 +33,28 @@ const NewsCard = ({ classess, orderClass, article }) => {
           </a>
         </div>
         <div className='divider'></div>
+        <div className='flex gap-3 items-center text-xs'>
+          <div className='flex gap-2 items-center'>
+            <div className='avatar'>
+              <div className='w-10 rounded-full'>
+                <img src='http://1.gravatar.com/avatar/1ec59eae354306975b17d78e8473d78b?s=90&d=mm&r=g' />
+              </div>
+            </div>
+            <h4>Admin</h4>
+          </div>
+          <div className='flex gap-1'>
+            <p>
+              <FaEye />
+            </p>
+            <p>1084</p>
+          </div>
+          <div className='flex gap-1'>
+            <p>
+              <FaComment />
+            </p>
+            <p>0</p>
+          </div>
+        </div>
       </div>
     </div>
   )

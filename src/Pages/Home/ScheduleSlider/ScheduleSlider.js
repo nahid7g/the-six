@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper'
+import { getUpcomingMatches } from '../../../redux/actionCreators/upcomingMatchesActions'
+import Loading from '../../../components/Loading/Loading'
 
 const ScheduleSlider = () => {
+  const dispatch = useDispatch()
+  const { loading, data, message } = useSelector(
+    (state) => state.upcomingMatches
+  )
+  useEffect(() => {
+    dispatch(getUpcomingMatches())
+  }, [dispatch])
+  if (loading) {
+    return <Loading />
+  }
   return (
     <section className='my-5 text-black text-sm'>
+      {message && <p className='text-red-600 text-center'>{message}</p>}
+      <h2 className='text-xl my-3 ml-8'>Upcoming matches</h2>
       <Swiper
         slidesPerView={2}
         spaceBetween={10}
@@ -33,131 +48,36 @@ const ScheduleSlider = () => {
         modules={[Pagination]}
         className='mySwiper'
       >
-        <SwiperSlide>
-          <div className='card h-40'>
-            <div className='card-body'>
-              <p className='card-text text-center font-bold'>
-                15-10-2023 10:10pm
-              </p>
-              <div className='card-actions flex justify-between'>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>england</p>
-                <p>vs</p>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>argentina</p>
+        {data?.data?.map((match, index) => (
+          <SwiperSlide key={match._id}>
+            <div
+              className={`card h-40 ${index % 2 === 0 ? '' : 'bg-slate-400'}`}
+            >
+              <div className='card-body flex flex-col items-center justify-center gap-2'>
+                <p className='card-text text-center font-bold'>
+                  <span>{match.date.slice(0, 10)}</span>{' '}
+                  <span>{match.time}</span>
+                </p>
+                <div className='card-actions flex justify-between'>
+                  <img
+                    className='h-6 max-w-xs'
+                    src={match.team1Logo}
+                    alt={match.team1 + 'vs' + match.team2}
+                  />
+                  <p>{match.team1}</p>
+                  <p>vs</p>
+                  <p>{match.team2}</p>
+                  <img
+                    className='h-6 max-w-xs'
+                    src={match.team2Logo}
+                    alt={match.team1 + 'vs' + match.team2}
+                  />
+                </div>
+                <h2>{match.venue}</h2>
               </div>
-              <h2 className='text-center'>Where: Camp nou</h2>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='card bg-slate-200 h-40'>
-            <div className='card-body'>
-              <p className='card-text text-center font-bold'>
-                15-10-2023 10:10pm
-              </p>
-              <div className='card-actions flex justify-between'>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>england</p>
-                <p>vs</p>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>argentina</p>
-              </div>
-              <h2 className='text-center'>Where: Camp nou</h2>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='card h-40'>
-            <div className='card-body'>
-              <p className='card-text text-center font-bold'>
-                15-10-2023 10:10pm
-              </p>
-              <div className='card-actions flex justify-between'>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>england</p>
-                <p>vs</p>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>argentina</p>
-              </div>
-              <h2 className='text-center'>Where: Camp nou</h2>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='card bg-slate-200 h-40'>
-            <div className='card-body'>
-              <p className='card-text text-center font-bold'>
-                15-10-2023 10:10pm
-              </p>
-              <div className='card-actions flex justify-between'>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>england</p>
-                <p>vs</p>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>argentina</p>
-              </div>
-              <h2 className='text-center'>Where: Camp nou</h2>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='card h-40'>
-            <div className='card-body'>
-              <p className='card-text text-center font-bold'>
-                15-10-2023 10:10pm
-              </p>
-              <div className='card-actions flex justify-between'>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>england</p>
-                <p>vs</p>
-                <img
-                  className='h-6 max-w-xs'
-                  src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2016/12/uk.jpg'
-                  alt='England'
-                />
-                <p>argentina</p>
-              </div>
-              <h2 className='text-center'>Where: Camp nou</h2>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   )

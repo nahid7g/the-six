@@ -5,7 +5,9 @@ import {
   firstTwoArticleReducer,
   twoArticleBottom,
 } from './articleReducer'
+import { heroSliderReducer } from './heroSliderReducer'
 import { getLaligaTableReducer } from './laligaTableReducer'
+import { upcomingMatchesReducer } from './upcomingMatchesReducer'
 import {
   getLoggedInUser,
   loginUserReducer,
@@ -21,6 +23,8 @@ const rootReducer = combineReducers({
   eightArticles: eightArticlesReducer,
   twoArticleBottom: twoArticleBottom,
   featuredArticles: featuredArticles,
+  heroSlider: heroSliderReducer,
+  upcomingMatches: upcomingMatchesReducer,
 })
 
 export default rootReducer
