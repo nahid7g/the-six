@@ -17,6 +17,16 @@ const FeaturedSlider = () => {
   useEffect(() => {
     dispatch(getFeaturedArticles())
   }, [dispatch])
+  const getDate = (iso) => {
+    const date = new Date(iso)
+    const longDate = date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+    return longDate
+  }
   return (
     <>
       <Swiper
@@ -46,9 +56,7 @@ const FeaturedSlider = () => {
               >
                 {article.title}
               </a>
-              <p className='text-sm lg:text-xl'>
-                {article.createdAt.slice(0, 10)}
-              </p>
+              <p className='text-sm lg:text-xl'>{getDate(article.createdAt)}</p>
             </div>
           </SwiperSlide>
         ))}

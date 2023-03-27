@@ -2,6 +2,24 @@ import React from 'react'
 import { FaComment, FaEye } from 'react-icons/fa'
 
 const NewsCard = ({ classess, orderClass, article }) => {
+  const getDate = (iso) => {
+    const date = new Date(iso)
+    const longDate = date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+    return longDate
+  }
+  const getTime = (iso) => {
+    const date = new Date(iso)
+    const time = date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+    })
+    return time
+  }
   return (
     <div className={`${classess} shadow-xl p-4 border gap-6 text-sm`}>
       <img
@@ -18,8 +36,8 @@ const NewsCard = ({ classess, orderClass, article }) => {
               : article?.title}
           </a>
           <div className='flex gap-3'>
-            <p>{article.createdAt.split('T')[1].slice(0, 5)}am</p>
-            <p>{article.createdAt.slice(0, 10)}</p>
+            <p>{getDate(article?.createdAt)}</p>
+            <p>{getTime(article?.createdAt)}</p>
           </div>
         </div>
         <div className='flex flex-col gap-2'>
