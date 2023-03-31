@@ -1,22 +1,26 @@
 import React from 'react'
+import GetDate from '../DateTime/GetDate'
+import GetTime from '../DateTime/GetTime'
 
-const Comments = () => {
+const Comments = ({ comment }) => {
   return (
     <div className='flex items-center gap-2'>
-      <div>
-        <img
-          src='https://fea.assettype.com/quintype-metype/assets/icons/author-b1d7806ace0e485f0f7374762a004506a82bec54e49e5cf9a38fde56bc1f0ae6.png'
-          alt='aa'
-        />
+      <div className='avatar'>
+        <div className='w-12 rounded-full'>
+          <img src={comment?.author?.imgURL} alt={comment?.author?.name} />
+        </div>
       </div>
       <div className='flex flex-col'>
-        <div className='flex gap-4 items-center'>
-          <p className='text-sm'>Nahid Hasan</p>
-          <p className='text-xs'>Today 5.45am</p>
+        <div className='flex gap-6'>
+          <div className='flex flex-col gap-1'>
+            <p className='text-sm'>{comment?.author?.name}</p>
+            <p className='text-xs'>{comment?.comment}</p>
+          </div>
+          <div className='flex flex-col gap-1'>
+            <p className='text-xs'>{GetTime(comment?.createdAt)}</p>
+            <p className='text-xs'>{GetDate(comment?.createdAt)}</p>
+          </div>
         </div>
-        <p className='text-xs'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing.
-        </p>
       </div>
     </div>
   )

@@ -10,6 +10,7 @@ import 'swiper/css/pagination'
 // import required modules
 import { Autoplay, Pagination } from 'swiper'
 import { getFeaturedArticles } from '../../../redux/actionCreators/articleActions'
+import { Link } from 'react-router-dom'
 
 const FeaturedSlider = () => {
   const dispatch = useDispatch()
@@ -44,18 +45,20 @@ const FeaturedSlider = () => {
       >
         {data?.data?.map((article) => (
           <SwiperSlide key={article._id} className='relative'>
-            <img
-              src={article.thumbnail}
-              alt={article.title}
-              className='w-full'
-            />
+            <Link to={`/article/${article?._id}`}>
+              <img
+                src={article.thumbnail}
+                alt={article.title}
+                className='w-full'
+              />
+            </Link>
             <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
-              <a
-                href='/'
+              <Link
+                to={`/article/${article?._id}`}
                 className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
               >
                 {article.title}
-              </a>
+              </Link>
               <p className='text-sm lg:text-xl'>{getDate(article.createdAt)}</p>
             </div>
           </SwiperSlide>

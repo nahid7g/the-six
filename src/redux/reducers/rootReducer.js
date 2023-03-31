@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux'
 import {
+  articleByIdReducer,
   eightArticlesReducer,
   featuredArticles,
   firstTwoArticleReducer,
+  postCommentReducer,
   twoArticleBottom,
 } from './articleReducer'
 import { heroSliderReducer } from './heroSliderReducer'
 import { getLaligaTableReducer } from './laligaTableReducer'
+import { subscribeNewsletterReducer } from './newsLetterReducer'
 import { upcomingMatchesReducer } from './upcomingMatchesReducer'
 import {
   getLoggedInUser,
@@ -25,6 +28,9 @@ const rootReducer = combineReducers({
   featuredArticles: featuredArticles,
   heroSlider: heroSliderReducer,
   upcomingMatches: upcomingMatchesReducer,
+  article: articleByIdReducer,
+  postComment: postCommentReducer,
+  newsletter: subscribeNewsletterReducer,
 })
 
 export default rootReducer

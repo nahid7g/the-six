@@ -9,7 +9,11 @@ import {
   FaSistrix,
 } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { loggedInUser, logout } from '../../../redux/actionCreators/userActions'
+import {
+  loggedInUser,
+  logout,
+} from '../../../../redux/actionCreators/userActions'
+import { Link } from 'react-router-dom'
 import '../Header.css'
 
 const HeaderTop = () => {
@@ -60,6 +64,9 @@ const HeaderTop = () => {
                 >
                   Logout
                 </button>
+                <Link className='btn btn-accent' to='/admin/dashboard'>
+                  Dashboard
+                </Link>
               </>
             ) : (
               <>
@@ -100,6 +107,9 @@ const HeaderTop = () => {
               >
                 Logout
               </button>
+              <Link className='btn btn-accent' to='/admin/dashboard'>
+                Dashboard
+              </Link>
             </>
           ) : (
             <>

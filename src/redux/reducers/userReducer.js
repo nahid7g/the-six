@@ -47,7 +47,7 @@ export const getLoggedInUser = (state = {}, action) => {
     case LOGGED_IN_USER_SUCCESS:
       return { loading: false, data: action.payload }
     case LOGGED_IN_USER_FAIL:
-      return { loading: false }
+      return { loading: false, message: action.payload }
     case LOGGED_IN_USER_RESET:
       return {}
     default:
