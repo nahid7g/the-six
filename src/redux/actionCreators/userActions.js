@@ -1,4 +1,10 @@
 import {
+  ALL_ADMIN_FAIL,
+  ALL_ADMIN_REQUIEST,
+  ALL_ADMIN_SUCCESS,
+  ALL_USER_FAIL,
+  ALL_USER_REQUIEST,
+  ALL_USER_SUCCESS,
   LOGGED_IN_USER_FAIL,
   LOGGED_IN_USER_REQUEST,
   LOGGED_IN_USER_RESET,
@@ -96,6 +102,44 @@ export const loggedInUser = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGGED_IN_USER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const getAllUsers = () => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_USER_REQUIEST })
+    const { data } = await axios.get('http://localhost:5000/api/v1/users')
+    dispatch({
+      type: ALL_USER_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: ALL_USER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const getAllAdmins = () => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_ADMIN_REQUIEST })
+    const { data } = await axios.get('http://localhost:5000/api/v1/users/admin')
+    dispatch({
+      type: ALL_ADMIN_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: ALL_ADMIN_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

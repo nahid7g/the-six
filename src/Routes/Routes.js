@@ -7,6 +7,8 @@ import AddCategory from '../Pages/AdminDashboard/Category/AddCategory/AddCategor
 import Categories from '../Pages/AdminDashboard/Category/Cagegories/Categories'
 import AddTag from '../Pages/AdminDashboard/Tag/AddTag/AddTag'
 import Tags from '../Pages/AdminDashboard/Tag/Tags/Tags'
+import Admins from '../Pages/AdminDashboard/User/Admins/Admins'
+import AllUsers from '../Pages/AdminDashboard/User/AllUsers.js/AllUsers'
 import Home from '../Pages/Home/Home'
 
 const router = createBrowserRouter([
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: 'add-tag',
         element: <AddTag />,
+      },
+      {
+        path: 'admins',
+        element: <Admins />,
+      },
+      {
+        path: 'users',
+        element: <AllUsers />,
       },
     ],
   },

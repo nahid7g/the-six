@@ -12,6 +12,8 @@ import { getLaligaTableReducer } from './laligaTableReducer'
 import { subscribeNewsletterReducer } from './newsLetterReducer'
 import { upcomingMatchesReducer } from './upcomingMatchesReducer'
 import {
+  getAllAdminReducer,
+  getAllUserReducer,
   getLoggedInUser,
   loginUserReducer,
   registerUserReducer,
@@ -22,6 +24,8 @@ const rootReducer = combineReducers({
   registerUser: registerUserReducer,
   loginUser: loginUserReducer,
   loggedInUser: getLoggedInUser,
+  allUsers: getAllUserReducer,
+  allAdmins: getAllAdminReducer,
   firstTwoArticle: firstTwoArticleReducer,
   eightArticles: eightArticlesReducer,
   twoArticleBottom: twoArticleBottom,
