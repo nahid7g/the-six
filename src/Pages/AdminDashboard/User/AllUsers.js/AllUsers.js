@@ -16,7 +16,7 @@ const AllUsers = () => {
   }
   return (
     <div>
-      <DashboardContentHeader />
+      <DashboardContentHeader content={users?.users} title='Users' />
       <div className='overflow-x-auto'>
         <table className='table text-sm w-full'>
           <thead>
@@ -29,7 +29,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {message && <p>{message}</p>}
+            {message && <p className='text-red-600'>{message}</p>}
             {users?.users?.map((user, index) => (
               <User user={user} key={user._id} index={index} />
             ))}

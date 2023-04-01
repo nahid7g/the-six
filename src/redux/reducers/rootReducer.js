@@ -9,7 +9,10 @@ import {
 } from './articleReducer'
 import { heroSliderReducer } from './heroSliderReducer'
 import { getLaligaTableReducer } from './laligaTableReducer'
-import { subscribeNewsletterReducer } from './newsLetterReducer'
+import {
+  getNewsletterSubscribersReducer,
+  subscribeNewsletterReducer,
+} from './newsLetterReducer'
 import { upcomingMatchesReducer } from './upcomingMatchesReducer'
 import {
   getAllAdminReducer,
@@ -35,6 +38,7 @@ const rootReducer = combineReducers({
   article: articleByIdReducer,
   postComment: postCommentReducer,
   newsletter: subscribeNewsletterReducer,
+  newsletterSubscribers: getNewsletterSubscribersReducer,
 })
 
 export default rootReducer

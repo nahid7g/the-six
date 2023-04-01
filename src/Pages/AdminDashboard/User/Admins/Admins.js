@@ -16,7 +16,7 @@ const Admins = () => {
   }
   return (
     <div>
-      <DashboardContentHeader />
+      <DashboardContentHeader content={admins?.admins} title='Admins' />
       <div className='overflow-x-auto'>
         <table className='table text-sm w-full'>
           <thead>

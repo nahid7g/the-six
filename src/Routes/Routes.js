@@ -10,6 +10,7 @@ import Tags from '../Pages/AdminDashboard/Tag/Tags/Tags'
 import Admins from '../Pages/AdminDashboard/User/Admins/Admins'
 import AllUsers from '../Pages/AdminDashboard/User/AllUsers.js/AllUsers'
 import Home from '../Pages/Home/Home'
+import Subscribers from '../Pages/AdminDashboard/Subscribers/Subscribers'
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: 'users',
         element: <AllUsers />,
+      },
+      {
+        path: 'subscribers',
+        element: <Subscribers />,
       },
     ],
   },

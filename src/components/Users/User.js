@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const User = ({ user, index }) => {
-  console.log(user)
   return (
     <tr>
       <th>{index + 1}</th>
@@ -10,17 +10,23 @@ const User = ({ user, index }) => {
       <td>
         <div className='avatar'>
           <div className='w-12 h-12 rounded-full'>
-            <img
-              className='w-12 h-12 rounded'
-              src={user?.imgURL}
-              alt={user?.name}
-            />
+            <Link to={`/admin/${user?._id}`}>
+              <img
+                className='w-12 h-12 rounded'
+                src={user?.imgURL}
+                alt={user?.name}
+              />
+            </Link>
           </div>
         </div>
       </td>
       <td className='text-white'>
         <button className='bg-red-600 px-2 rounded mx-2'>block</button>
-        <button className='bg-green-500 px-2 rounded mx-2'>make admin</button>
+        {user?.role === 'admin' ? (
+          <button className='bg-red-600 px-2 rounded mx-2'>remove admin</button>
+        ) : (
+          <button className='bg-green-500 px-2 rounded mx-2'>make admin</button>
+        )}
       </td>
     </tr>
   )
