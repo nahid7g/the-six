@@ -16,7 +16,12 @@ const AllUsers = () => {
   }
   return (
     <div>
-      <DashboardContentHeader content={users?.users} title='Users' />
+      <DashboardContentHeader
+        content={users?.users}
+        title='users'
+        linkTitle='see admins'
+        link='admins'
+      />
       <div className='overflow-x-auto'>
         <table className='table text-sm w-full'>
           <thead>

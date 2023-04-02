@@ -25,13 +25,11 @@ const AddCategory = () => {
   }
   return (
     <div>
-      <DashboardContentHeader />
-      <div className='flex justify-between items-center'>
-        <h3>Add Category</h3>
-        <Link className='btn' to='/'>
-          Show Category
-        </Link>
-      </div>
+      <DashboardContentHeader
+        title='add category'
+        linkTitle='all categories'
+        link='categories'
+      />
       <form className='flex flex-col gap-4' onSubmit={handleAddCategory}>
         <div className='form-control'>
           <label className='label'>

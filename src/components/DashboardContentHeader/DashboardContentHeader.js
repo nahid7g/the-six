@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const DashboardContentHeader = ({ content, title, other }) => {
+const DashboardContentHeader = ({ content, title, linkTitle, link }) => {
   return (
     <div className='navbar bg-sky-300 mb-4'>
       <div className='navbar-start'>
@@ -36,19 +36,16 @@ const DashboardContentHeader = ({ content, title, other }) => {
           </ul>
         </div>
         <h2 className='normal-case text-xl'>
-          {content?.length && (
-            <p>
-              {title}({content?.length})
-            </p>
-          )}
+          <p>
+            {title}
+            {content && <span>({content?.length})</span>}
+          </p>
         </h2>
       </div>
       <div className='navbar-end'>
-        {other && (
-          <Link to='/' className='btn'>
-            Add article
-          </Link>
-        )}
+        <Link to={`/admin/dashboard/${link}`} className='btn'>
+          {linkTitle}
+        </Link>
       </div>
     </div>
   )

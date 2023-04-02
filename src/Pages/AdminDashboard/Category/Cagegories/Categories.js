@@ -18,7 +18,12 @@ const Categories = () => {
   }
   return (
     <div>
-      <DashboardContentHeader />
+      <DashboardContentHeader
+        content={categories?.data}
+        title='Categories'
+        linkTitle='Add category'
+        link='add-category'
+      />
       <div className='flex flex-wrap gap-2 justify-around'>
         {message && <p className='text-red-600'>{message}</p>}
         {categories?.data?.map((category) => (

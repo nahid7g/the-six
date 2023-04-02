@@ -16,7 +16,12 @@ const Tags = () => {
   }
   return (
     <>
-      <DashboardContentHeader />
+      <DashboardContentHeader
+        content={tags?.data}
+        title='Tags'
+        linkTitle='Add tag'
+        link='add-tag'
+      />
       <div className='flex flex-wrap gap-2 justify-around'>
         {message && <p className='text-red-600'>{message}</p>}
         {tags?.data?.map((tag) => (

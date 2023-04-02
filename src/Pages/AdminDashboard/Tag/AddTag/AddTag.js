@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTag } from '../../../../redux/actionCreators/tagActions'
@@ -21,16 +20,13 @@ const AddTag = () => {
   if (loading) {
     return <Loading />
   }
-  console.log(success)
   return (
     <div>
-      <DashboardContentHeader />
-      <div className='flex justify-between items-center'>
-        <h3>Add Tag</h3>
-        <Link className='btn' to='/'>
-          Show Tags
-        </Link>
-      </div>
+      <DashboardContentHeader
+        title='Add tag'
+        linkTitle='All tags'
+        link='tags'
+      />
       <form className='flex flex-col gap-4' onSubmit={handleAddTag}>
         <div className='form-control'>
           <label className='label'>
