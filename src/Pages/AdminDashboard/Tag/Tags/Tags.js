@@ -1,18 +1,27 @@
-import React from 'react'
-import Category from '../../../../components/Category/Category'
+import React, { useEffect } from 'react'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
+import { useDispatch, useSelector } from 'react-redux'
+import { getTags } from '../../../../redux/actionCreators/tagActions'
+import Loading from '../../../../components/Loading/Loading'
+import Category from '../../../../components/Category/Category'
 
 const Tags = () => {
+  const dispatch = useDispatch()
+  const { loading, tags, message } = useSelector((state) => state.getTags)
+  useEffect(() => {
+    dispatch(getTags())
+  }, [dispatch])
+  if (loading) {
+    return <Loading />
+  }
   return (
     <>
       <DashboardContentHeader />
       <div className='flex flex-wrap gap-2 justify-around'>
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
+        {message && <p className='text-red-600'>{message}</p>}
+        {tags?.data?.map((tag) => (
+          <Category category={tag} key={tag._id} />
+        ))}
       </div>
     </>
   )

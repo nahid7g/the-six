@@ -21,6 +21,11 @@ import {
   loginUserReducer,
   registerUserReducer,
 } from './userReducer'
+import category, {
+  addCategoryReducer,
+  getCategoriesReducer,
+} from './categoryReducer'
+import { addTagReducer, getTagsReducer } from './tagReducer'
 
 const rootReducer = combineReducers({
   laligaTable: getLaligaTableReducer,
@@ -39,6 +44,10 @@ const rootReducer = combineReducers({
   postComment: postCommentReducer,
   newsletter: subscribeNewsletterReducer,
   newsletterSubscribers: getNewsletterSubscribersReducer,
+  addCategory: addCategoryReducer,
+  getCategories: getCategoriesReducer,
+  addTag: addTagReducer,
+  getTags: getTagsReducer,
 })
 
 export default rootReducer
