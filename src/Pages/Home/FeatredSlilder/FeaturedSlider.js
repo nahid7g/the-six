@@ -44,7 +44,11 @@ const FeaturedSlider = () => {
         className='mySwiper'
       >
         {data?.data?.map((article) => (
-          <SwiperSlide key={article._id} className='relative'>
+          <SwiperSlide
+            key={article._id}
+            className='relative'
+            style={{ maxHeight: '400px' }}
+          >
             <Link to={`/article/${article?._id}`}>
               <img
                 // src={article.thumbnail}

@@ -15,10 +15,10 @@ const HeaderMenu = () => {
         <Link to='/tennis'>Tennis</Link>
       </li>
       <li>
-        <Link to='/basketball'>BasketBall</Link>
+        <Link to='/basketball'>Basketball</Link>
       </li>
       <li>
-        <Link to='/racing'>Racing</Link>
+        <Link to='/tennis'>Tennis</Link>
       </li>
     </>
   )
@@ -63,31 +63,6 @@ const HeaderMenu = () => {
         <ul className='menu menu-horizontal px-1 font-bold'>{menu}</ul>
       </div>
     </div>
-    // <div className='navbar m-0 p-0'>
-    //   <div className='w-full'>
-    // <div className='flex-1 logo p-5'>
-    //   <Link to='/' className='btn btn-ghost normal-case text-xl'>
-    //     The Six
-    //   </Link>
-    // </div>
-    //     <div className='flex-none'>
-    // <ul className='menu menu-horizontal px-1'>
-    //   <li>
-    //     <Link to='/'>Home</Link>
-    //   </li>
-    //   <li>
-    //     <Link to='/'>Football</Link>
-    //   </li>
-    //   <li>
-    //     <Link to='/'>Cricket</Link>
-    //   </li>
-    //   <li>
-    //     <Link to='/'>Tennis</Link>
-    //   </li>
-    // </ul>
-    //     </div>
-    //   </div>
-    // </div>
   )
 }
 

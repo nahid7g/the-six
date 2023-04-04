@@ -28,29 +28,29 @@ const HeaderTop = () => {
         <div className='w-6/12 sm:w-8/12'>
           <ul className='flex gap-3'>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <FaFacebookF />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <FaTwitter />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <FaInstagram />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <FaLinkedinIn />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <FaDiscord />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -90,7 +90,7 @@ const HeaderTop = () => {
             )}
           </ul>
         </div>
-        <div className='text-xl'>
+        <div className='text-xl cursor-pointer'>
           <span>
             <FaSistrix />
           </span>
