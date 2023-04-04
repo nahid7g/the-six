@@ -49,16 +49,12 @@ const FullNews = () => {
   if (loading || userLoading) {
     return <Loading />
   }
-  console.log(data)
   return (
     <section className='md:container p-5 min-h-screen'>
       <Link className='btn btn-primary my-2' to='/'>
         Go Back
       </Link>
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-        {userMessage && (
-          <h2 className='text-center text-red-600 my-8'>{userMessage}</h2>
-        )}
         <div className='shadow-xl gap-6 text-sm lg:col-span-2'>
           <div>
             <div>
@@ -66,6 +62,7 @@ const FullNews = () => {
                 src={data?.data?.thumbnail}
                 alt={data?.data?.title}
                 className='w-full'
+                style={{ height: '500px' }}
               />
               <p className='text-xs m-2'>{data?.data?.thumbnailTitle}</p>
             </div>
@@ -75,12 +72,12 @@ const FullNews = () => {
                   <div className='avatar'>
                     <div className='w-10 rounded-full'>
                       <img
-                        src={userData?.user?.imgURL}
-                        alt={userData?.user?.name}
+                        src={data?.data?.author?.imgURL}
+                        alt={data?.data?.author?.name}
                       />
                     </div>
                   </div>
-                  <h4>{userData?.user?.name}</h4>
+                  <h4>{data?.data?.author?.name}</h4>
                 </div>
                 <div className='flex gap-x-4 text-sm'>
                   <div className='flex gap-2 items-center cursor-pointer'>
@@ -109,10 +106,10 @@ const FullNews = () => {
               <div className='divider'></div>
               <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
                 <div className='flex flex-wrap gap-2'>
-                  <button className='btn btn-outline'>News</button>
-                  <button className='btn btn-outline'>Soccer</button>
-                  <button className='btn btn-outline'>Ultimaet kickoff</button>
-                  <button className='btn btn-outline'>World</button>
+                  {data?.data?.tags &&
+                    data.data.tags.map((tag) => (
+                      <button className='btn btn-outline'>{tag}</button>
+                    ))}
                 </div>
                 <ul className='flex flex-wrap gap-3'>
                   <li>

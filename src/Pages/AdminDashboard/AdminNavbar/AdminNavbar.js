@@ -1,12 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { logout } from '../../../redux/actionCreators/userActions'
 
 const AdminNavbar = () => {
+  const dispatch = useDispatch()
   return (
     <div className='navbar px-4'>
       <div className='navbar-start'>
-        <Link to className='btn btn-ghost normal-case text-xl'>
-          daisyUI
+        <Link to='' className='btn btn-ghost normal-case text-xl'>
+          The Six
         </Link>
       </div>
       <div className='navbar-center'>
@@ -35,14 +38,12 @@ const AdminNavbar = () => {
             <li>
               <Link to className='justify-between'>
                 Profile
-                <span className='badge'>New</span>
               </Link>
             </li>
             <li>
-              <Link to>Settings</Link>
-            </li>
-            <li>
-              <Link to>Logout</Link>
+              <Link to onClick={() => dispatch(logout())}>
+                Logout
+              </Link>
             </li>
           </ul>
         </div>

@@ -54,7 +54,7 @@ const AddNewArticle = () => {
     theFormData.append('thumbnail', formData.thumbnail)
     theFormData.append('thumbnailTitle', formData.thumbnailTitle)
     theFormData.append('category', formData.category)
-    theFormData.append('tags', formData.tags)
+    theFormData.append('tags', formData.tags.split(','))
     theFormData.append('article', formData.article)
     dispatch(addArticle(theFormData))
   }
