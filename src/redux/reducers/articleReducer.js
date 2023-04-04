@@ -14,6 +14,9 @@ import {
   FIRST_TWO_ARTICLE_FAIL,
   FIRST_TWO_ARTICLE_REQUEST,
   FIRST_TWO_ARTICLE_SUCCESS,
+  GET_ALL_ARTICLE_FAIL,
+  GET_ALL_ARTICLE_REQUEST,
+  GET_ALL_ARTICLE_SUCCESS,
   POST_COMMENT_FAIL,
   POST_COMMENT_REQUIEST,
   POST_COMMENT_SUCCESS,
@@ -34,6 +37,20 @@ export const addNewArticleReducer = (state = {}, action) => {
       return state
   }
 }
+
+export const allArticlesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_ALL_ARTICLE_REQUEST:
+      return { loading: true }
+    case GET_ALL_ARTICLE_SUCCESS:
+      return { loading: false, data: action.payload }
+    case GET_ALL_ARTICLE_FAIL:
+      return { loading: false, message: action.payload }
+    default:
+      return state
+  }
+}
+
 export const firstTwoArticleReducer = (state = {}, action) => {
   switch (action.type) {
     case FIRST_TWO_ARTICLE_REQUEST:

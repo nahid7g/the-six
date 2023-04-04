@@ -15,6 +15,9 @@ import {
   FIRST_TWO_ARTICLE_FAIL,
   FIRST_TWO_ARTICLE_REQUEST,
   FIRST_TWO_ARTICLE_SUCCESS,
+  GET_ALL_ARTICLE_FAIL,
+  GET_ALL_ARTICLE_REQUEST,
+  GET_ALL_ARTICLE_SUCCESS,
   POST_COMMENT_FAIL,
   POST_COMMENT_REQUIEST,
   POST_COMMENT_SUCCESS,
@@ -38,6 +41,22 @@ export const addArticle = (article) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ADD_NEW_ARTICLE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const getAllArticles = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_ALL_ARTICLE_REQUEST })
+    const { data } = await axios.get('http://localhost:5000/api/v1/articles')
+    dispatch({ type: GET_ALL_ARTICLE_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: GET_ALL_ARTICLE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import {
   addNewArticleReducer,
+  allArticlesReducer,
   articleByIdReducer,
   eightArticlesReducer,
   featuredArticles,
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   heroSlider: heroSliderReducer,
   upcomingMatches: upcomingMatchesReducer,
   addNewArticle: addNewArticleReducer,
+  allArticles: allArticlesReducer,
   article: articleByIdReducer,
   postComment: postCommentReducer,
   newsletter: subscribeNewsletterReducer,
