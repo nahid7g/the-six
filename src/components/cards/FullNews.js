@@ -46,9 +46,10 @@ const FullNews = () => {
     dispatch(postComment(id, theComment))
   }
 
-  if (loading || userLoading || commentLoading) {
+  if (loading || userLoading) {
     return <Loading />
   }
+  console.log(data)
   return (
     <section className='md:container p-5 min-h-screen'>
       <Link className='btn btn-primary my-2' to='/'>
@@ -66,9 +67,7 @@ const FullNews = () => {
                 alt={data?.data?.title}
                 className='w-full'
               />
-              <p className='text-xs m-2'>
-                Lionel messi celebrating goal againist Real Madrid
-              </p>
+              <p className='text-xs m-2'>{data?.data?.thumbnailTitle}</p>
             </div>
             <div className='p-4'>
               <div className='flex justify-between p-2 gap-3 items-center text-xs'>
@@ -149,6 +148,7 @@ const FullNews = () => {
                   placeholder='Type here'
                   className='input input-bordered input-lg w-full max-w-lg'
                 />
+                {commentLoading && <Loading />}
                 <p>
                   <button type='submit' className='btn my-2'>
                     Post Comment

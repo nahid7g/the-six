@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import {
+  addNewArticleReducer,
   articleByIdReducer,
   eightArticlesReducer,
   featuredArticles,
@@ -21,10 +22,7 @@ import {
   loginUserReducer,
   registerUserReducer,
 } from './userReducer'
-import category, {
-  addCategoryReducer,
-  getCategoriesReducer,
-} from './categoryReducer'
+import { addCategoryReducer, getCategoriesReducer } from './categoryReducer'
 import { addTagReducer, getTagsReducer } from './tagReducer'
 
 const rootReducer = combineReducers({
@@ -40,6 +38,7 @@ const rootReducer = combineReducers({
   featuredArticles: featuredArticles,
   heroSlider: heroSliderReducer,
   upcomingMatches: upcomingMatchesReducer,
+  addNewArticle: addNewArticleReducer,
   article: articleByIdReducer,
   postComment: postCommentReducer,
   newsletter: subscribeNewsletterReducer,

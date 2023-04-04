@@ -11,6 +11,7 @@ import Admins from '../Pages/AdminDashboard/User/Admins/Admins'
 import AllUsers from '../Pages/AdminDashboard/User/AllUsers.js/AllUsers'
 import Home from '../Pages/Home/Home'
 import Subscribers from '../Pages/AdminDashboard/Subscribers/Subscribers'
+import AddNewArticle from '../Pages/AdminDashboard/Article/AddNewArticle/AddNewArticle'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'articles',
         element: <Articles />,
+      },
+      {
+        path: 'articles/new-article',
+        element: <AddNewArticle />,
       },
       {
         path: 'categories',

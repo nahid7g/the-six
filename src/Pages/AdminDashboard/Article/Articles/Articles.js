@@ -4,7 +4,11 @@ import DashboardContentHeader from '../../../../components/DashboardContentHeade
 const Articles = () => {
   return (
     <div>
-      <DashboardContentHeader />
+      <DashboardContentHeader
+        title='all articles'
+        linkTitle='add article'
+        link='articles/new-article'
+      />
     </div>
   )
 }

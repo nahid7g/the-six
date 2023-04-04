@@ -43,9 +43,11 @@ const DashboardContentHeader = ({ content, title, linkTitle, link }) => {
         </h2>
       </div>
       <div className='navbar-end'>
-        <Link to={`/admin/dashboard/${link}`} className='btn'>
-          {linkTitle}
-        </Link>
+        {link && (
+          <Link to={`/admin/dashboard/${link}`} className='btn'>
+            {linkTitle}
+          </Link>
+        )}
       </div>
     </div>
   )

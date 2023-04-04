@@ -1,5 +1,8 @@
 import axios from 'axios'
 import {
+  ADD_NEW_ARTICLE_FAIL,
+  ADD_NEW_ARTICLE_REQUEST,
+  ADD_NEW_ARTICLE_SUCCESS,
   ARTICLE_BY_ID_FAIL,
   ARTICLE_BY_ID_REQUIEST,
   ARTICLE_BY_ID_SUCCESS,
@@ -12,7 +15,6 @@ import {
   FIRST_TWO_ARTICLE_FAIL,
   FIRST_TWO_ARTICLE_REQUEST,
   FIRST_TWO_ARTICLE_SUCCESS,
-  GET_COMMENTS_REQUEST,
   POST_COMMENT_FAIL,
   POST_COMMENT_REQUIEST,
   POST_COMMENT_SUCCESS,
@@ -20,6 +22,29 @@ import {
   TWO_ARTICLES_BOTTOM_REQUEST,
   TWO_ARTICLES_BOTTOM_SUCCESS,
 } from '../actionTypes/actionTypes'
+
+export const addArticle = (article) => async (dispatch) => {
+  try {
+    dispatch({ type: ADD_NEW_ARTICLE_REQUEST })
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    await axios.post(`http://localhost:5000/api/v1/articles`, article, config)
+    dispatch({ type: ADD_NEW_ARTICLE_SUCCESS, payload: true })
+  } catch (error) {
+    dispatch({
+      type: ADD_NEW_ARTICLE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
 
 export const getFirstTwoArticle = () => async (dispatch) => {
   try {
@@ -120,12 +145,11 @@ export const postComment = (articleId, comment) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     }
-    const { data } = await axios.post(
+    await axios.post(
       `http://localhost:5000/api/v1/articles/${articleId}/comment`,
       comment,
       config
     )
-    console.log(data)
     dispatch({ type: POST_COMMENT_SUCCESS, payload: true })
   } catch (error) {
     dispatch({

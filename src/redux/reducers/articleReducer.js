@@ -1,4 +1,7 @@
 import {
+  ADD_NEW_ARTICLE_FAIL,
+  ADD_NEW_ARTICLE_REQUEST,
+  ADD_NEW_ARTICLE_SUCCESS,
   ARTICLE_BY_ID_FAIL,
   ARTICLE_BY_ID_REQUIEST,
   ARTICLE_BY_ID_SUCCESS,
@@ -19,6 +22,18 @@ import {
   TWO_ARTICLES_BOTTOM_SUCCESS,
 } from '../actionTypes/actionTypes'
 
+export const addNewArticleReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADD_NEW_ARTICLE_REQUEST:
+      return { loading: true }
+    case ADD_NEW_ARTICLE_SUCCESS:
+      return { loading: false, success: true }
+    case ADD_NEW_ARTICLE_FAIL:
+      return { loading: false, message: action.payload }
+    default:
+      return state
+  }
+}
 export const firstTwoArticleReducer = (state = {}, action) => {
   switch (action.type) {
     case FIRST_TWO_ARTICLE_REQUEST:

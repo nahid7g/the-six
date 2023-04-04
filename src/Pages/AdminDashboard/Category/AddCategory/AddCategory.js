@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCategory } from '../../../../redux/actionCreators/categoryActions'

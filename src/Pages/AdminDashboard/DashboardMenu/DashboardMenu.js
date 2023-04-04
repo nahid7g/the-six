@@ -40,7 +40,7 @@ const DashboardMenu = () => {
             <ul className='flex flex-col p-0 m-0 gap-0'>
               <li>
                 <Link
-                  to='add-article'
+                  to='articles/new-article'
                   className='py-1 flex items-center gap-2 text-xs'
                 >
                   <span>
