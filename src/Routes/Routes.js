@@ -12,6 +12,8 @@ import AllUsers from '../Pages/AdminDashboard/User/AllUsers.js/AllUsers'
 import Home from '../Pages/Home/Home'
 import Subscribers from '../Pages/AdminDashboard/Subscribers/Subscribers'
 import AddNewArticle from '../Pages/AdminDashboard/Article/AddNewArticle/AddNewArticle'
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
+import Dashboard from '../Pages/AdminDashboard/Dashboard'
 
 const router = createBrowserRouter([
   {
@@ -30,11 +32,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/admin/dashboard',
-    element: <AdminDashboard />,
+    element: (
+      <ProtectedRoute>
+        <AdminDashboard />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
-        element: <p>Hello</p>,
+        element: <Dashboard />,
       },
       {
         path: 'articles',

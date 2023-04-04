@@ -1,9 +1,10 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../../../redux/actionCreators/userActions'
 
 const AdminNavbar = () => {
+  const { data } = useSelector((state) => state.loggedInUser)
   const dispatch = useDispatch()
   return (
     <div className='navbar px-4'>
@@ -25,10 +26,7 @@ const AdminNavbar = () => {
         <div className='dropdown dropdown-end'>
           <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
             <div className='w-10 rounded-full'>
-              <img
-                src='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-                alt='aa'
-              />
+              <img src={data?.user?.imgURL} alt='aa' />
             </div>
           </label>
           <ul

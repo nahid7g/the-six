@@ -27,12 +27,9 @@ const AddNewArticle = () => {
   const [formData, setFormData] = useState(initialFormData)
 
   useEffect(() => {
-    dispatch(loggedInUser())
-  }, [dispatch])
-
-  useEffect(() => {
     setFormData(initialFormData)
   }, [success])
+
   if (loading || postLoading) {
     return <Loading />
   }
