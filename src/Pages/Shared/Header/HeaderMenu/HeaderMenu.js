@@ -1,20 +1,24 @@
 import React from 'react'
 import '../Header.css'
+import { Link } from 'react-router-dom'
 
 const HeaderMenu = () => {
   const menu = (
     <>
       <li>
-        <a href='/'>Home</a>
+        <Link to='/football'>Football</Link>
       </li>
       <li>
-        <a href='/'>Football</a>
+        <Link to='/cricket'>Cricket</Link>
       </li>
       <li>
-        <a href='/'>Cricket</a>
+        <Link to='/tennis'>Tennis</Link>
       </li>
       <li>
-        <a href='/'>Tennis</a>
+        <Link to='/basketball'>BasketBall</Link>
+      </li>
+      <li>
+        <Link to='/racing'>Racing</Link>
       </li>
     </>
   )
@@ -46,13 +50,13 @@ const HeaderMenu = () => {
           </ul>
         </div>
         <div className='flex-1 logo py-3'>
-          <a href='/' className='btn btn-ghost'>
+          <Link to='/' className='btn btn-ghost'>
             <img
               className='w-9/12'
               src='http://kodeforest.net/wp-demo/soccer/wp-content/uploads/2017/03/Ultimate-Soccer.png'
               alt='logo'
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className='navbar-end hidden lg:flex'>
@@ -62,23 +66,23 @@ const HeaderMenu = () => {
     // <div className='navbar m-0 p-0'>
     //   <div className='w-full'>
     // <div className='flex-1 logo p-5'>
-    //   <a href='/' className='btn btn-ghost normal-case text-xl'>
+    //   <Link to='/' className='btn btn-ghost normal-case text-xl'>
     //     The Six
-    //   </a>
+    //   </Link>
     // </div>
     //     <div className='flex-none'>
     // <ul className='menu menu-horizontal px-1'>
     //   <li>
-    //     <a href='/'>Home</a>
+    //     <Link to='/'>Home</Link>
     //   </li>
     //   <li>
-    //     <a href='/'>Football</a>
+    //     <Link to='/'>Football</Link>
     //   </li>
     //   <li>
-    //     <a href='/'>Cricket</a>
+    //     <Link to='/'>Cricket</Link>
     //   </li>
     //   <li>
-    //     <a href='/'>Tennis</a>
+    //     <Link to='/'>Tennis</Link>
     //   </li>
     // </ul>
     //     </div>

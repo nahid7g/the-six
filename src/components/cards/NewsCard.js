@@ -9,7 +9,8 @@ const NewsCard = ({ classess, orderClass, article }) => {
     <div className={`${classess} shadow-xl border gap-6 text-sm`}>
       <Link to={`/article/${article?._id}`}>
         <img
-          src={article?.thumbnail}
+          // src={article?.thumbnail}
+          src='https://i.ibb.co/1fpgspy/camp-nou.jpg'
           alt={article?.title}
           className={`${orderClass} w-full`}
         />
@@ -19,9 +20,12 @@ const NewsCard = ({ classess, orderClass, article }) => {
           <h5 className='text-red-600'>
             {article.category ? article.category : <span>Fifa News</span>}
           </h5>
-          <Link to={`/article/${article?._id}`} className='text-lg font-bold'>
+          <Link
+            to={`/article/${article?._id}`}
+            className='text-lg font-bold text-blue-600'
+          >
             {article?.title?.length > 50
-              ? article?.title + '...'
+              ? article?.title.slice(0, 50) + '...'
               : article?.title}
           </Link>
           <div className='flex gap-3'>
@@ -31,13 +35,10 @@ const NewsCard = ({ classess, orderClass, article }) => {
         </div>
         <div className='flex flex-col gap-2 my-2'>
           <p>
-            {article?.article?.length > 300
-              ? article?.article + '...'
+            {article?.article?.length > 100
+              ? article?.article.slice(0, 100) + '...'
               : article?.article}
           </p>
-          <Link to={`/article/${article?._id}`} className='text-blue-600'>
-            read more
-          </Link>
         </div>
         <div className='divider'></div>
         <div className='flex justify-between gap-3 items-center text-xs'>

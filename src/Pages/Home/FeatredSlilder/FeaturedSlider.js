@@ -47,19 +47,20 @@ const FeaturedSlider = () => {
           <SwiperSlide key={article._id} className='relative'>
             <Link to={`/article/${article?._id}`}>
               <img
-                src={article.thumbnail}
+                // src={article.thumbnail}
+                src='https://i.ibb.co/1fpgspy/camp-nou.jpg'
                 alt={article.title}
                 className='w-full'
               />
             </Link>
-            <div className='flex flex-col gap-4 text-white absolute bottom-0 left-5'>
+            <div className='flex flex-col gap-4 text-white absolute bottom-2 left-5'>
               <Link
                 to={`/article/${article?._id}`}
                 className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
               >
                 {article.title}
               </Link>
-              <p className='text-sm lg:text-xl'>{getDate(article.createdAt)}</p>
+              <p className='text-xs'>{getDate(article.createdAt)}</p>
             </div>
           </SwiperSlide>
         ))}
