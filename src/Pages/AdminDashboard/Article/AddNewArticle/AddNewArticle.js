@@ -1,9 +1,10 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useRef, useMemo, useEffect } from 'react'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../../../../components/Loading/Loading'
 import { addArticle } from '../../../../redux/actionCreators/articleActions'
 import JoditEditor from 'jodit-react'
+import { Navigate } from 'react-router-dom'
 
 const AddNewArticle = () => {
   const editor = useRef(null)
@@ -29,9 +30,11 @@ const AddNewArticle = () => {
 
   const [formData, setFormData] = useState(initialFormData)
 
-  if (loading || postLoading) {
-    return <Loading />
-  }
+  useEffect(() => {
+    Navigate('articles')
+    setFormData(initialFormData)
+    setContent('')
+  }, [success])
 
   const handleChange = (event) => {
     const { name, value, files } = event.target
@@ -53,6 +56,9 @@ const AddNewArticle = () => {
     theFormData.append('tags', formData.tags)
     theFormData.append('article', content)
     dispatch(addArticle(theFormData))
+  }
+  if (loading || postLoading) {
+    return <Loading />
   }
   return (
     <div>
@@ -132,19 +138,7 @@ const AddNewArticle = () => {
         </div>
         <div className='form-control'>
           <label className='label'>
-            <span className='label-text'>Content</span>
-          </label>
-          <textarea
-            name='article'
-            value={formData.article}
-            onChange={handleChange}
-            className='textarea textarea-bordered'
-            placeholder='your story'
-          ></textarea>
-        </div>
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text'>Article</span>
+            <span className='label-text'>Your Story</span>
           </label>
           <JoditEditor
             ref={editor}

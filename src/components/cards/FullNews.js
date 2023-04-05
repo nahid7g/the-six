@@ -104,7 +104,7 @@ const FullNews = () => {
                 <p>{GetTime(data?.data?.createdAt)}</p>
               </h3>
               <article className='text-lg my-2'>
-                {htmlToText(data?.data?.article)}
+                {htmlToText(data?.data?.article ? data.data.article : '')}
               </article>
               <div className='divider'></div>
               <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
