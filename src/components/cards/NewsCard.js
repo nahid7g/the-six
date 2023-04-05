@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import GetDate from '../DateTime/GetDate'
 import GetTime from '../DateTime/GetTime'
 
+import htmlToText from 'html-react-parser'
+
 const NewsCard = ({ classess, orderClass, article }) => {
   return (
     <div className={`${classess} shadow-xl border gap-6 text-sm`}>
@@ -34,11 +36,7 @@ const NewsCard = ({ classess, orderClass, article }) => {
           </div>
         </div>
         <div className='flex flex-col gap-2 my-2'>
-          <p>
-            {article?.article?.length > 100
-              ? article?.article.slice(0, 100) + '...'
-              : article?.article}
-          </p>
+          <p>{htmlToText(article?.article.slice(0, 100))}</p>
         </div>
         <div className='divider'></div>
         <div className='flex justify-between gap-3 items-center text-xs'>

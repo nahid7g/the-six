@@ -18,6 +18,7 @@ import GetTime from '../DateTime/GetTime'
 import Loading from '../Loading/Loading'
 import Newsletter from '../Newsletter/Newsletter'
 import PopularPosts from '../PopularPosts/PopularPosts'
+import htmlToText from 'html-react-parser'
 
 const FullNews = () => {
   const dispatch = useDispatch()
@@ -102,7 +103,9 @@ const FullNews = () => {
                 <p>{GetDate(data?.data?.createdAt)}</p>
                 <p>{GetTime(data?.data?.createdAt)}</p>
               </h3>
-              <article className='text-sm'>{data?.data?.article}</article>
+              <article className='text-lg my-2'>
+                {htmlToText(data?.data?.article)}
+              </article>
               <div className='divider'></div>
               <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
                 <div className='flex flex-wrap gap-2'>

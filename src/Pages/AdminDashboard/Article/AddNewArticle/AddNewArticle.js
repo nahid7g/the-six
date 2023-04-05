@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useRef, useMemo } from 'react'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../../../../components/Loading/Loading'
-import { loggedInUser } from '../../../../redux/actionCreators/userActions'
 import { addArticle } from '../../../../redux/actionCreators/articleActions'
+import JoditEditor from 'jodit-react'
 
 const AddNewArticle = () => {
+  const editor = useRef(null)
+  const [content, setContent] = useState('')
+
   const dispatch = useDispatch()
   const { loading, data, message } = useSelector((state) => state.loggedInUser)
 
@@ -25,10 +28,6 @@ const AddNewArticle = () => {
   }
 
   const [formData, setFormData] = useState(initialFormData)
-
-  useEffect(() => {
-    setFormData(initialFormData)
-  }, [success])
 
   if (loading || postLoading) {
     return <Loading />
@@ -51,8 +50,8 @@ const AddNewArticle = () => {
     theFormData.append('thumbnail', formData.thumbnail)
     theFormData.append('thumbnailTitle', formData.thumbnailTitle)
     theFormData.append('category', formData.category)
-    theFormData.append('tags', formData.tags.split(','))
-    theFormData.append('article', formData.article)
+    theFormData.append('tags', formData.tags)
+    theFormData.append('article', content)
     dispatch(addArticle(theFormData))
   }
   return (
@@ -110,10 +109,12 @@ const AddNewArticle = () => {
             onChange={handleChange}
             className='select select-bordered w-full max-w-xs'
           >
-            <option value='Football'>Football</option>
+            <option>Select category</option>
+            <option>Football</option>
             <option>Soccer</option>
             <option>Tenis</option>
             <option>Cricket</option>
+            <option defaultValue>Sports</option>
           </select>
         </div>
         <div className='form-control'>
@@ -140,6 +141,18 @@ const AddNewArticle = () => {
             className='textarea textarea-bordered'
             placeholder='your story'
           ></textarea>
+        </div>
+        <div className='form-control'>
+          <label className='label'>
+            <span className='label-text'>Article</span>
+          </label>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            tabIndex={1}
+            onBlur={(newContent) => setContent(newContent)}
+            onChange={(newContent) => setContent(newContent)}
+          />
         </div>
         {message && <p className='text-red-600'>{message}</p>}
         {postMessage && <p className='text-red-600'>{postMessage}</p>}
