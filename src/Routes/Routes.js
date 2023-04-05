@@ -14,6 +14,7 @@ import Subscribers from '../Pages/AdminDashboard/Subscribers/Subscribers'
 import AddNewArticle from '../Pages/AdminDashboard/Article/AddNewArticle/AddNewArticle'
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 import Dashboard from '../Pages/AdminDashboard/Dashboard'
+import MyArticles from '../Pages/AdminDashboard/Article/MyArticles/MyArticles'
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'articles/new-article',
         element: <AddNewArticle />,
+      },
+      {
+        path: 'articles/my-articles',
+        element: <MyArticles />,
       },
       {
         path: 'categories',

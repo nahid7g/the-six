@@ -59,6 +59,15 @@ const DashboardMenu = () => {
                   </span>
                   All Article
                 </Link>
+                <Link
+                  to='articles/my-articles'
+                  className='py-1 flex items-center gap-2 text-xs'
+                >
+                  <span>
+                    <FaEye />
+                  </span>
+                  My Articles
+                </Link>
               </li>
             </ul>
           </div>
