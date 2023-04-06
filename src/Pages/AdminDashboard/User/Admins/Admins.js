@@ -10,7 +10,7 @@ const Admins = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllAdmins())
-  }, [dispatch])
+  }, [])
   if (loading) {
     return <Loading />
   }

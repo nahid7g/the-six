@@ -62,7 +62,6 @@ export const login = (user) => async (dispatch) => {
       payload: data,
     })
     localStorage.setItem('token', data.data.token)
-    dispatch(loggedInUser())
   } catch (error) {
     dispatch({
       type: LOGIN_USER_FAIL,

@@ -15,6 +15,12 @@ import AddNewArticle from '../Pages/AdminDashboard/Article/AddNewArticle/AddNewA
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 import Dashboard from '../Pages/AdminDashboard/Dashboard'
 import MyArticles from '../Pages/AdminDashboard/Article/MyArticles/MyArticles'
+import Football from '../Pages/Football/Football'
+import Cricket from '../Pages/Cricket/Cricket'
+import Tennis from '../Pages/Tennis/Tennis'
+import Basketball from '../Pages/Basketball/Basketball'
+import HeroSliders from '../Pages/AdminDashboard/HeroSlider/HeroSliders/HeroSliders'
+import AddHeroSlider from '../Pages/AdminDashboard/HeroSlider/AddHeroSlider/AddHeroSlider'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +36,22 @@ const router = createBrowserRouter([
         element: <FullNews />,
       },
     ],
+  },
+  {
+    path: '/football',
+    element: <Football />,
+  },
+  {
+    path: '/cricket',
+    element: <Cricket />,
+  },
+  {
+    path: '/tennis',
+    element: <Tennis />,
+  },
+  {
+    path: '/basketball',
+    element: <Basketball />,
   },
   {
     path: '/admin/dashboard',
@@ -70,6 +92,14 @@ const router = createBrowserRouter([
       {
         path: 'add-tag',
         element: <AddTag />,
+      },
+      {
+        path: 'hero-sliders',
+        element: <HeroSliders />,
+      },
+      {
+        path: 'add-hero-slider',
+        element: <AddHeroSlider />,
       },
       {
         path: 'admins',

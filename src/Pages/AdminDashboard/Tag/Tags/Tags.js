@@ -10,7 +10,7 @@ const Tags = () => {
   const { loading, tags, message } = useSelector((state) => state.getTags)
   useEffect(() => {
     dispatch(getTags())
-  }, [dispatch])
+  }, [])
   if (loading) {
     return <Loading />
   }

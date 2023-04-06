@@ -17,9 +17,6 @@ const HeaderMenu = () => {
       <li>
         <Link to='/basketball'>Basketball</Link>
       </li>
-      <li>
-        <Link to='/tennis'>Tennis</Link>
-      </li>
     </>
   )
   return (

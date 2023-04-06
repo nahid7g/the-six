@@ -36,7 +36,9 @@ const NewsCard = ({ classess, orderClass, article }) => {
           </div>
         </div>
         <div className='flex flex-col gap-2 my-2'>
-          <p>{htmlToText(article?.article.slice(0, 100))}</p>
+          <article>
+            {htmlToText(article?.article.slice(0, 100) + '...')}
+          </article>
         </div>
         <div className='divider'></div>
         <div className='flex justify-between gap-3 items-center text-xs'>

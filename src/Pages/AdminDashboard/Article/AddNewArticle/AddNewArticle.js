@@ -1,14 +1,16 @@
-import React, { useState, useRef, useMemo, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../../../../components/Loading/Loading'
 import { addArticle } from '../../../../redux/actionCreators/articleActions'
 import JoditEditor from 'jodit-react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const AddNewArticle = () => {
   const editor = useRef(null)
   const [content, setContent] = useState('')
+
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
   const { loading, data, message } = useSelector((state) => state.loggedInUser)
@@ -30,12 +32,6 @@ const AddNewArticle = () => {
 
   const [formData, setFormData] = useState(initialFormData)
 
-  useEffect(() => {
-    Navigate('articles')
-    setFormData(initialFormData)
-    setContent('')
-  }, [success])
-
   const handleChange = (event) => {
     const { name, value, files } = event.target
 
@@ -56,6 +52,9 @@ const AddNewArticle = () => {
     theFormData.append('tags', formData.tags)
     theFormData.append('article', content)
     dispatch(addArticle(theFormData))
+    setFormData(initialFormData)
+    setContent('')
+    navigate('/admin/dashboard/articles')
   }
   if (loading || postLoading) {
     return <Loading />
@@ -76,6 +75,7 @@ const AddNewArticle = () => {
             type='text'
             placeholder='title'
             name='title'
+            required
             value={formData.title}
             onChange={handleChange}
             className='input input-bordered'
@@ -88,6 +88,7 @@ const AddNewArticle = () => {
           <input
             type='file'
             name='thumbnail'
+            required
             onChange={handleChange}
             className='file-input file-input-bordered w-full max-w-xs'
           />
@@ -113,6 +114,7 @@ const AddNewArticle = () => {
             name='category'
             value={formData.category}
             onChange={handleChange}
+            required
             className='select select-bordered w-full max-w-xs'
           >
             <option>Select category</option>
@@ -143,6 +145,7 @@ const AddNewArticle = () => {
           <JoditEditor
             ref={editor}
             value={content}
+            required
             tabIndex={1}
             onBlur={(newContent) => setContent(newContent)}
             onChange={(newContent) => setContent(newContent)}

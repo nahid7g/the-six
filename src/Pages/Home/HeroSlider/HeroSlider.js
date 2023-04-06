@@ -47,8 +47,7 @@ const HeroSlider = () => {
           >
             <Link to={`/article/${slider?._id}`}>
               <img
-                // src={`${slider?.thumbnail}`}
-                src='https://i.ibb.co/1fpgspy/camp-nou.jpg'
+                src={`${slider?.thumbnail}`}
                 alt={slider?.title}
                 className='w-full h-full opacity-60'
               />

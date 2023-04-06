@@ -13,10 +13,10 @@ const ProtectedRoute = ({ children }) => {
   if (loading) {
     return <Loading />
   }
-  if (data?.user && data?.user._id) {
+  if (data && data.user) {
     return children
   }
-  return <Navigate to='/' />
+  return <h2>Unauthorized user.</h2>
 }
 
 export default ProtectedRoute

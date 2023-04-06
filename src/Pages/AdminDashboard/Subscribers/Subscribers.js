@@ -12,7 +12,7 @@ const Subscribers = () => {
   )
   useEffect(() => {
     dispatch(getNewsletterSubscribers())
-  }, [dispatch])
+  }, [])
   if (loading) {
     return <Loading />
   }

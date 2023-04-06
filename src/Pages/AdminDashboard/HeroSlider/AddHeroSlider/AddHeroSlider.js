@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
-import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTag } from '../../../../redux/actionCreators/tagActions'
+import { postHeroSlider } from '../../../../redux/actionCreators/sliderActions'
 import Loading from '../../../../components/Loading/Loading'
+import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import AddContentForm from '../../../../components/AddContentForm/AddContentForm'
 
-const AddTag = () => {
+const AddHeroSlider = () => {
   const dispatch = useDispatch()
-  const { loading, success, message } = useSelector((state) => state.addTag)
+
+  const { loading, success, message } = useSelector(
+    (state) => state.addHeroSlider
+  )
+
   const initialFormData = {
     name: '',
     description: '',
     thumbnail: null,
+    url: 'http://',
   }
 
   const [formData, setFormData] = useState(initialFormData)
@@ -27,16 +32,18 @@ const AddTag = () => {
 
   const handleAddTag = (e) => {
     e.preventDefault()
+    console.log(formData)
     const theFormData = new FormData()
-    theFormData.append('name', formData.name)
+    theFormData.append('title', formData.name)
     theFormData.append('description', formData.description)
     theFormData.append('thumbnail', formData.thumbnail)
-    dispatch(addTag(theFormData))
-    setFormData(initialFormData)
+    theFormData.append('url', formData.url)
+    dispatch(postHeroSlider(theFormData))
+    // setFormData(initialFormData)
   }
   const labels = {
-    name: 'Tag Name',
-    content: 'Tag Description',
+    name: 'Slider title',
+    content: 'Slider description',
   }
   if (loading) {
     return <Loading />
@@ -44,9 +51,9 @@ const AddTag = () => {
   return (
     <div>
       <DashboardContentHeader
-        title='Add tag'
-        linkTitle='All tags'
-        link='tags'
+        title='Add Slider'
+        linkTitle='All sliders'
+        link='hero-sliders'
       />
       <form className='flex flex-col gap-4' onSubmit={handleAddTag}>
         <AddContentForm
@@ -55,7 +62,9 @@ const AddTag = () => {
           formData={formData}
         />
         {message && <p className='text-red-600'>{message}</p>}
-        {success && <p className='text-green-400'>Tag successfully created</p>}
+        {success && (
+          <p className='text-green-400'>Slider successfully created</p>
+        )}
         <div>
           <button className='btn'>Submit</button>
         </div>
@@ -64,4 +73,4 @@ const AddTag = () => {
   )
 }
 
-export default AddTag
+export default AddHeroSlider

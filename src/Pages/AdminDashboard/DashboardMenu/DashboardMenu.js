@@ -146,6 +146,41 @@ const DashboardMenu = () => {
           <input type='checkbox' />
           <div className='collapse-title text-sm font-medium flex items-center gap-2'>
             <span>
+              <FaTags />
+            </span>
+            Hero Slider
+          </div>
+          <div className='collapse-content'>
+            <ul className='flex flex-col p-0 m-0 gap-0'>
+              <li>
+                <Link
+                  to='add-hero-slider'
+                  className='py-1 flex items-center gap-2 text-xs'
+                >
+                  <span>
+                    <FaPlusCircle />
+                  </span>
+                  Add Slider
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='hero-sliders'
+                  className='py-1 flex items-center gap-2 text-xs'
+                >
+                  <span>
+                    <FaEye />
+                  </span>
+                  All Sliders
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='collapse collapse-arrow'>
+          <input type='checkbox' />
+          <div className='collapse-title text-sm font-medium flex items-center gap-2'>
+            <span>
               <FaUserAlt />
             </span>
             Users

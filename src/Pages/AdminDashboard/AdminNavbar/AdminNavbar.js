@@ -2,12 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../../../redux/actionCreators/userActions'
+import Loading from '../../../components/Loading/Loading'
 
 const AdminNavbar = () => {
-  const { data } = useSelector((state) => state.loggedInUser)
+  const { loading, data } = useSelector((state) => state.loggedInUser)
   const dispatch = useDispatch()
   return (
     <div className='navbar px-4'>
+      {loading && <Loading />}
       <div className='navbar-start'>
         <Link to='' className='btn btn-ghost normal-case text-xl'>
           The Six

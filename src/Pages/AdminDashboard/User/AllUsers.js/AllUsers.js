@@ -10,7 +10,7 @@ const AllUsers = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllUsers())
-  }, [dispatch])
+  }, [])
   if (loading) {
     return <Loading />
   }

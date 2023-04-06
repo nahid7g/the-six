@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCategory } from '../../../../redux/actionCreators/categoryActions'
 import Loading from '../../../../components/Loading/Loading'
+import AddContentForm from '../../../../components/AddContentForm/AddContentForm'
 
 const AddCategory = () => {
   const { loading, success, message } = useSelector(
     (state) => state.addCategory
   )
   const dispatch = useDispatch()
+
+  const initialFormData = {
+    name: '',
+    description: '',
+    thumbnail: null,
+  }
+
+  const [formData, setFormData] = useState(initialFormData)
+
+  const handleChange = (event) => {
+    const { name, value, files } = event.target
+
+    setFormData((prvData) => ({
+      ...prvData,
+      [name]: files ? files[0] : value,
+    }))
+  }
+
   const handleAddCategory = (e) => {
     e.preventDefault()
-    const category = e.target.category.value
-    const description = e.target.description.value
-    const theCategory = {
-      name: category,
-      description,
-    }
-    dispatch(addCategory(theCategory))
+    const theFormData = new FormData()
+    theFormData.append('name', formData.name)
+    theFormData.append('description', formData.description)
+    theFormData.append('thumbnail', formData.thumbnail)
+    dispatch(addCategory(theFormData))
+    setFormData(initialFormData)
   }
   if (loading) {
     return <Loading />
+  }
+  const labels = {
+    name: 'Category Name',
+    content: 'Category Description',
   }
   return (
     <div>
@@ -30,33 +52,17 @@ const AddCategory = () => {
         link='categories'
       />
       <form className='flex flex-col gap-4' onSubmit={handleAddCategory}>
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text text-lg'>Category Name</span>
-          </label>
-          <input
-            type='text'
-            placeholder='category name'
-            name='category'
-            className='input input-bordered'
-          />
-        </div>
-        <div className='form-control'>
-          <label className='label'>
-            <span className='label-text text-lg'>Category Description</span>
-          </label>
-          <textarea
-            placeholder='category description'
-            name='description'
-            className='textarea textarea-bordered textarea-lg w-full'
-          ></textarea>
-        </div>
+        <AddContentForm
+          labels={labels}
+          handleChange={handleChange}
+          formData={formData}
+        />
         {message && <p className='text-red-600'>{message}</p>}
         {success && (
           <p className='text-green-400'>Category successfully created</p>
         )}
         <div>
-          <button className='btn'>Add Article</button>
+          <button className='btn'>Submit</button>
         </div>
       </form>
     </div>

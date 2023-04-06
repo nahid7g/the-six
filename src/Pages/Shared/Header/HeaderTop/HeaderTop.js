@@ -15,16 +15,18 @@ import {
 } from '../../../../redux/actionCreators/userActions'
 import { Link } from 'react-router-dom'
 import '../Header.css'
+import Loading from '../../../../components/Loading/Loading'
 
 const HeaderTop = () => {
   const dispatch = useDispatch()
-  const { data } = useSelector((state) => state.loggedInUser)
+  const { loading, data } = useSelector((state) => state.loggedInUser)
   useEffect(() => {
     dispatch(loggedInUser())
   }, [dispatch])
   return (
     <div className='header-top py-5 my-0 bg-neutral text-white'>
       <div className='container flex justify-between items-center'>
+        {loading && <Loading />}
         <div className='w-6/12 sm:w-8/12'>
           <ul className='flex gap-3'>
             <li>

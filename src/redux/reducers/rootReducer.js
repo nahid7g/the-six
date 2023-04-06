@@ -9,7 +9,7 @@ import {
   postCommentReducer,
   twoArticleBottom,
 } from './articleReducer'
-import { heroSliderReducer } from './heroSliderReducer'
+import { addHeroSliderReducer, heroSliderReducer } from './heroSliderReducer'
 import { getLaligaTableReducer } from './laligaTableReducer'
 import {
   getNewsletterSubscribersReducer,
@@ -37,6 +37,7 @@ const rootReducer = combineReducers({
   eightArticles: eightArticlesReducer,
   twoArticleBottom: twoArticleBottom,
   featuredArticles: featuredArticles,
+  addHeroSlider: addHeroSliderReducer,
   heroSlider: heroSliderReducer,
   upcomingMatches: upcomingMatchesReducer,
   addNewArticle: addNewArticleReducer,
