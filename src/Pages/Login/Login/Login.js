@@ -40,7 +40,7 @@ const Login = () => {
                 <span className='label-text'>Email</span>
               </label>
               <input
-                type='text'
+                type='email'
                 name='email'
                 placeholder='email'
                 className='input input-bordered'
@@ -51,7 +51,7 @@ const Login = () => {
                 <span className='label-text'>Password</span>
               </label>
               <input
-                type='text'
+                type='password'
                 name='password'
                 placeholder='password'
                 className='input input-bordered'

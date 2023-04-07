@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
 import { loggedInUser } from '../../redux/actionCreators/userActions'
 import Loading from '../Loading/Loading'
 
@@ -13,7 +12,7 @@ const ProtectedRoute = ({ children }) => {
   if (loading) {
     return <Loading />
   }
-  if (data && data.user) {
+  if (data && data.user.role === 'admin') {
     return children
   }
   return <h2>Unauthorized user.</h2>

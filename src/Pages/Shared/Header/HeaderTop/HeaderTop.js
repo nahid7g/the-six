@@ -26,7 +26,6 @@ const HeaderTop = () => {
   return (
     <div className='header-top py-5 my-0 bg-neutral text-white'>
       <div className='container flex justify-between items-center'>
-        {loading && <Loading />}
         <div className='w-6/12 sm:w-8/12'>
           <ul className='flex gap-3'>
             <li>
@@ -72,6 +71,7 @@ const HeaderTop = () => {
               </>
             ) : (
               <>
+                {loading && ''}
                 <label htmlFor='login-modal' className='btn'>
                   <li>
                     <span className='inline-grid mr-2'>

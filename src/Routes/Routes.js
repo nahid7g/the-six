@@ -23,11 +23,13 @@ import HeroSliders from '../Pages/AdminDashboard/HeroSlider/HeroSliders/HeroSlid
 import AddHeroSlider from '../Pages/AdminDashboard/HeroSlider/AddHeroSlider/AddHeroSlider'
 import FootballMatches from '../Pages/AdminDashboard/Match/Football/Matches/FootballMatches'
 import AddFootballMatch from '../Pages/AdminDashboard/Match/Football/AddUpcomingMatch/AddFootballMatch'
+import DisplayError from '../components/DisplayError/DisplayError'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
+    errorElement: <DisplayError />,
     children: [
       {
         path: '/',
@@ -37,24 +39,25 @@ const router = createBrowserRouter([
         path: 'article/:id',
         element: <FullNews />,
       },
+      {
+        path: '/football',
+        element: <Football />,
+      },
+      {
+        path: '/cricket',
+        element: <Cricket />,
+      },
+      {
+        path: '/tennis',
+        element: <Tennis />,
+      },
+      {
+        path: '/basketball',
+        element: <Basketball />,
+      },
     ],
   },
-  {
-    path: '/football',
-    element: <Football />,
-  },
-  {
-    path: '/cricket',
-    element: <Cricket />,
-  },
-  {
-    path: '/tennis',
-    element: <Tennis />,
-  },
-  {
-    path: '/basketball',
-    element: <Basketball />,
-  },
+
   {
     path: '/admin/dashboard',
     element: (
@@ -62,6 +65,7 @@ const router = createBrowserRouter([
         <AdminDashboard />
       </ProtectedRoute>
     ),
+    errorElement: <DisplayError />,
     children: [
       {
         path: '',

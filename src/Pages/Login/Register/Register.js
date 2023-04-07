@@ -73,18 +73,19 @@ const Register = () => {
                 <span className='label-text'>Password</span>
               </label>
               <input
-                type='text'
+                type='password'
                 name='password'
                 placeholder='Your Password'
                 className='input input-bordered'
               />
+              <small>include at least 1 special charecter and uppercase</small>
             </div>
             <div className='form-control'>
               <label className='label'>
                 <span className='label-text'>Confirm Password</span>
               </label>
               <input
-                type='text'
+                type='password'
                 name='confirmpassword'
                 placeholder='Confirm Password'
                 className='input input-bordered'
