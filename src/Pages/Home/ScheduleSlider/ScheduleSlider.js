@@ -8,6 +8,8 @@ import 'swiper/css/pagination'
 import { Pagination } from 'swiper'
 import { getUpcomingMatches } from '../../../redux/actionCreators/upcomingMatchesActions'
 import Loading from '../../../components/Loading/Loading'
+import GetDate from '../../../components/DateTime/GetDate'
+import GetTime from '../../../components/DateTime/GetTime'
 
 const ScheduleSlider = () => {
   const dispatch = useDispatch()
@@ -54,14 +56,14 @@ const ScheduleSlider = () => {
               className={`card h-40 ${index % 2 === 0 ? '' : 'bg-slate-400'}`}
             >
               <div className='card-body flex flex-col items-center justify-center gap-2'>
-                <p className='card-text text-center font-bold'>
-                  <span>{match.date.slice(0, 10)}</span>{' '}
-                  <span>{match.time}</span>
+                <p className='card-text text-center flex gap-2'>
+                  <span>{GetDate(match.datetime)}</span>{' '}
+                  <span>{GetTime(match.datetime)}</span>
                 </p>
                 <div className='card-actions flex justify-between'>
                   <img
                     className='h-6 max-w-xs'
-                    src={match.team1Logo}
+                    src={`http://localhost:5000/${match.team1logo}`}
                     alt={match.team1 + 'vs' + match.team2}
                   />
                   <p>{match.team1}</p>
@@ -69,7 +71,7 @@ const ScheduleSlider = () => {
                   <p>{match.team2}</p>
                   <img
                     className='h-6 max-w-xs'
-                    src={match.team2Logo}
+                    src={`http://localhost:5000/${match.team2logo}`}
                     alt={match.team1 + 'vs' + match.team2}
                   />
                 </div>
