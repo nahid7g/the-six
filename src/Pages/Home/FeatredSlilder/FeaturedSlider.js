@@ -51,8 +51,7 @@ const FeaturedSlider = () => {
           >
             <Link to={`/article/${article?._id}`}>
               <img
-                // src={article.thumbnail}
-                src='https://i.ibb.co/1fpgspy/camp-nou.jpg'
+                src={article?.thumbnail}
                 alt={article.title}
                 className='w-full'
               />

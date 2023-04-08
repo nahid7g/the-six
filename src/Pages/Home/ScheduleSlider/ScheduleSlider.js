@@ -63,7 +63,7 @@ const ScheduleSlider = () => {
                 <div className='card-actions flex justify-between'>
                   <img
                     className='h-6 max-w-xs'
-                    src={`http://localhost:5000/${match.team1logo}`}
+                    src={`https://tame-pear-vulture-kilt.cyclic.app/${match.team1logo}`}
                     alt={match.team1 + 'vs' + match.team2}
                   />
                   <p>{match.team1}</p>
@@ -71,7 +71,7 @@ const ScheduleSlider = () => {
                   <p>{match.team2}</p>
                   <img
                     className='h-6 max-w-xs'
-                    src={`http://localhost:5000/${match.team2logo}`}
+                    src={`https://tame-pear-vulture-kilt.cyclic.app/${match.team2logo}`}
                     alt={match.team1 + 'vs' + match.team2}
                   />
                 </div>

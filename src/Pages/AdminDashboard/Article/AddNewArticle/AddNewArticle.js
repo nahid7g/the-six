@@ -4,13 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../../../../components/Loading/Loading'
 import { addArticle } from '../../../../redux/actionCreators/articleActions'
 import JoditEditor from 'jodit-react'
-import { useNavigate } from 'react-router-dom'
 
 const AddNewArticle = () => {
   const editor = useRef(null)
   const [content, setContent] = useState('')
-
-  const navigate = useNavigate()
 
   const dispatch = useDispatch()
   const { loading, data, message } = useSelector((state) => state.loggedInUser)
@@ -27,7 +24,6 @@ const AddNewArticle = () => {
     thumbnailTitle: '',
     category: '',
     tags: '',
-    article: '',
   }
 
   const [formData, setFormData] = useState(initialFormData)
@@ -40,21 +36,34 @@ const AddNewArticle = () => {
       [name]: files ? files[0] : value,
     }))
   }
-
+  const [imgUrl, setImgUrl] = useState('')
+  const imgbbKey = process.env.REACT_APP_IMGBB_KEY
   const handleSubmit = (event) => {
     event.preventDefault()
-    const theFormData = new FormData()
-    theFormData.append('author', data?.user._id)
-    theFormData.append('title', formData.title)
-    theFormData.append('thumbnail', formData.thumbnail)
-    theFormData.append('thumbnailTitle', formData.thumbnailTitle)
-    theFormData.append('category', formData.category)
-    theFormData.append('tags', formData.tags)
-    theFormData.append('article', content)
-    dispatch(addArticle(theFormData))
+
+    const imgData = new FormData()
+    imgData.append('image', formData.thumbnail)
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgbbKey}`
+    fetch(url, {
+      method: 'POST',
+      body: imgData,
+    })
+      .then((res) => res.json())
+      .then((bbData) => {
+        if (bbData.success) {
+          const theArticle = {
+            thumbnail: bbData.data.url,
+            title: formData.title,
+            thumbnailTitle: formData.thumbnailTitle,
+            category: formData.category,
+            tags: formData.tags,
+            article: content,
+          }
+          dispatch(addArticle(theArticle))
+        }
+      })
     setFormData(initialFormData)
     setContent('')
-    navigate('/admin/dashboard/articles')
   }
   if (loading || postLoading) {
     return <Loading />

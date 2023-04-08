@@ -29,7 +29,11 @@ export const register = (user) => async (dispatch) => {
         'Content-Type': 'application/json',
       },
     }
-    await axios.post('http://localhost:5000/api/v1/users', user, config)
+    await axios.post(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users',
+      user,
+      config
+    )
     dispatch({
       type: REGISTER_USER_SUCCESS,
     })
@@ -53,7 +57,7 @@ export const login = (user) => async (dispatch) => {
       },
     }
     const { data } = await axios.post(
-      'http://localhost:5000/api/v1/users/login',
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/login',
       user,
       config
     )
@@ -91,7 +95,7 @@ export const loggedInUser = () => async (dispatch) => {
       },
     }
     const { data } = await axios.get(
-      'http://localhost:5000/api/v1/users/profile',
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/profile',
       config
     )
     dispatch({
@@ -112,7 +116,9 @@ export const loggedInUser = () => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USER_REQUIEST })
-    const { data } = await axios.get('http://localhost:5000/api/v1/users')
+    const { data } = await axios.get(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users'
+    )
     dispatch({
       type: ALL_USER_SUCCESS,
       payload: data,
@@ -131,7 +137,9 @@ export const getAllUsers = () => async (dispatch) => {
 export const getAllAdmins = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_ADMIN_REQUIEST })
-    const { data } = await axios.get('http://localhost:5000/api/v1/users/admin')
+    const { data } = await axios.get(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/admin'
+    )
     dispatch({
       type: ALL_ADMIN_SUCCESS,
       payload: data,

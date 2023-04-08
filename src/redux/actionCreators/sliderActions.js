@@ -16,7 +16,11 @@ export const postHeroSlider = (slider) => async (dispatch) => {
         'Content-Type': 'multipart/form-data',
       },
     }
-    await axios.post('http://localhost:5000/api/v1/heroslider', slider, config)
+    await axios.post(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/heroslider',
+      slider,
+      config
+    )
     dispatch({
       type: ADD_HERO_SLIDER_SUCCESS,
     })
@@ -34,7 +38,9 @@ export const postHeroSlider = (slider) => async (dispatch) => {
 export const getHeroslider = () => async (dispatch) => {
   try {
     dispatch({ type: HERO_SLIDER_REQUIEST })
-    const { data } = await axios.get('http://localhost:5000/api/v1/heroslider')
+    const { data } = await axios.get(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/heroslider'
+    )
     dispatch({ type: HERO_SLIDER_SUCCESS, payload: data })
   } catch (error) {
     dispatch({

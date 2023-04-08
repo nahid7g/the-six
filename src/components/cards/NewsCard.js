@@ -11,10 +11,9 @@ const NewsCard = ({ classess, orderClass, article }) => {
     <div className={`${classess} shadow-xl border gap-6 text-sm`}>
       <Link to={`/article/${article?._id}`}>
         <img
-          // src={article?.thumbnail}
-          src='https://i.ibb.co/1fpgspy/camp-nou.jpg'
+          src={article?.thumbnail}
           alt={article?.title}
-          className={`${orderClass} w-full`}
+          className={`${orderClass} w-full h-full`}
         />
       </Link>
       <div className='flex flex-col justify-between p-4'>

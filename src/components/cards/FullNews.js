@@ -110,9 +110,11 @@ const FullNews = () => {
               <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
                 <div className='flex flex-wrap gap-2'>
                   {data?.data?.tags &&
-                    data.data.tags.map((tag) => (
-                      <button className='btn btn-outline'>{tag}</button>
-                    ))}
+                    data.data.tags
+                      .split(',')
+                      .map((tag) => (
+                        <button className='btn btn-outline'>{tag}</button>
+                      ))}
                 </div>
                 <ul className='flex flex-wrap gap-3'>
                   <li>

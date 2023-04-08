@@ -16,7 +16,11 @@ export const addCategory = (category) => async (dispatch) => {
         'Content-Type': 'application/json',
       },
     }
-    await axios.post('http://localhost:5000/api/v1/category', category, config)
+    await axios.post(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/category',
+      category,
+      config
+    )
     dispatch({
       type: ADD_CATEGORY_SUCCESS,
     })
@@ -34,7 +38,9 @@ export const addCategory = (category) => async (dispatch) => {
 export const getCategories = () => async (dispatch) => {
   try {
     dispatch({ type: GET_CATEGORIES_REQUIEST })
-    const { data } = await axios.get('http://localhost:5000/api/v1/category')
+    const { data } = await axios.get(
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/category'
+    )
     dispatch({
       type: GET_CATEGORIES_SUCCESS,
       payload: data,
